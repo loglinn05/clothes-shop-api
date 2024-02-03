@@ -1,0 +1,27 @@
+.addition-form {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.card-header::after {
+    content: none;
+}
+
+.color {
+    width: 16px;
+    height: 16px;
+}
+.select2-selection__clear {
+    padding-left: 0 !important;
+    text-align: center;
+}
+
+.table-fixed {
+    table-layout: fixed;
+    overflow: scroll;
+}
+
+.brand-link {
+    text-decoration: none !important;
+}
