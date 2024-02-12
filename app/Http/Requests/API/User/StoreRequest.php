@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\API\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 
 class StoreRequest extends FormRequest
 {
@@ -17,18 +18,18 @@ class StoreRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         return [
             'full_name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users|max:255',
-            'tel' => 'phone:INTERNATIONAL',
-            'password' => 'required|string|confirmed',
-            'birthdate' => 'date_format:m/d/Y',
+            'tel' => 'required|phone:INTERNATIONAL',
+            'password' => 'required|string|confirmed|min:8|max:255',
+            'birthdate' => 'nullable|date_format:m/d/Y',
             'address' => 'nullable|string|max:255',
-            'gender' => 'nullable|integer'
+            'gender' => 'nullable|integer|between:0,2'
         ];
     }
 }

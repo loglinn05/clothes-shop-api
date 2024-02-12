@@ -17,8 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->text('content');
             $table->double('price');
+            $table->double('old_price')->nullable();
             $table->integer('count');
-            $table->boolean('is_published')->default(false);
             $table->foreignId('category_id')->index()->constrained('categories');
             $table->timestamps();
         });

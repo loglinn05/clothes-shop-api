@@ -26,9 +26,8 @@ class ProductFactory extends Factory
             'description' => fake()->text(255),
             'content' => fake()->text(255),
             'price' => fake()->numberBetween(1, 500),
-            'old_price' => fake()->numberBetween(500, 1500),
+            'old_price' => fake()->boolean() ? fake()->numberBetween(500, 1500) : null,
             'count' => fake()->numberBetween(1, 2000),
-            'is_published' => (bool)random_int(0, 1),
             'category_id' => fake()->randomElement(Category::where('id', '>', 0)->pluck('id')->toArray()),
         ];
     }
